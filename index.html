@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Starter Site</title>
+  <meta name="description" content="A clean, fast single-file website you can deploy on GitHub Pages." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23000'/%3E%3Ctext x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EMP%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg: #0b0e14; /* deep navy */
+      --panel: #121826; /* card bg */
+      --text: #e6edf6; /* near-white */
+      --muted: #97a3b6;
+      --acc: #4cc2ff; /* accent */
+      --ring: #9bdbff66;
+    }
+    *{box-sizing:border-box}
+    html, body{margin:0; height:100%;}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #142034 10%, transparent 60%),
+                  radial-gradient(1400px 700px at 110% -20%, #111a2b 10%, transparent 60%),
+                  var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a{color: var(--acc); text-decoration: none}
+    a:hover{ text-decoration: underline }
+    header{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, #0b0e14cc, #0b0e1400);
+      border-bottom: 1px solid #1f2a44;
+    }
+    .nav{
+      max-width: 1100px; margin: 0 auto; padding: .75rem 1rem; display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{display:flex; gap:.6rem; align-items:center; font-weight:700; letter-spacing:.3px}
+    .brand-logo{width:28px; height:28px; border-radius:999px; background: #0b0e14; outline: 2px solid var(--acc); display:grid; place-items:center; font-size:.8rem}
+    .links{display:flex; gap:1rem}
+    .links a{padding:.5rem .75rem; border-radius:10px}
+    .links a:hover{background:#1a2336}
+
+    .container{max-width:1100px; margin:0 auto; padding: 2rem 1rem}
+
+    .hero{display:grid; grid-template-columns: 1.1fr 1fr; gap:2rem; align-items:center; padding-top:2rem}
+    .title{font-size: clamp(2rem, 4vw, 3.25rem); line-height:1.1; letter-spacing:.2px; margin:0 0 1rem}
+    .subtitle{color: var(--muted); margin:0 0 1.5rem}
+    .btns{display:flex; gap:.75rem; flex-wrap:wrap}
+    .btn{border:1px solid #29405f; background: #132135; color: var(--text); padding:.75rem 1rem; border-radius:14px; font-weight:600}
+    .btn.acc{ background: linear-gradient(180deg, #4cc2ff, #3aa8e2); color:#041018; border:none }
+    .btn:hover{ filter: brightness(1.05)}
+
+    .card-grid{display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:2rem}
+    .card{background: linear-gradient(180deg, #121826, #0f1626); border:1px solid #1f2a44; border-radius:16px; padding:1rem}
+    .card h3{margin:.25rem 0 .5rem; font-size:1.1rem}
+    .badge{display:inline-block; font-size:.75rem; color:#0b1b2e; background:#7ed3ff; padding:.15rem .45rem; border-radius:999px; font-weight:700}
+
+    .section{padding: 3rem 0}
+    .two-col{display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:center}
+    .panel{background: var(--panel); border:1px solid #1f2a44; border-radius:16px; padding:1.25rem}
+    .muted{color: var(--muted)}
+
+    .footer{border-top:1px solid #1f2a44; color: #9fb0c6; font-size:.95rem}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+      .card-grid{grid-template-columns: 1fr}
+      .two-col{grid-template-columns: 1fr}
+      .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-logo">⚡</div>
+        <span>My Starter Site</span>
+      </div>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="title">Deploy a beautiful site in minutes.</h1>
+        <p class="subtitle">This single-file template is optimized for GitHub Pages. No build tools, no dependencies — just copy, commit, and go live.</p>
+        <div class="btns">
+          <a class="btn acc" href="#get-started">Get Started</a>
+          <a class="btn" href="https://pages.github.com/" target="_blank" rel="noopener">What is GitHub Pages?</a>
+        </div>
+        <p class="muted" style="margin-top:.75rem">Tip: Replace text and colors to make it yours. The accent is set via <code>--acc</code> in <code>:root</code>.</p>
+      </div>
+      <div class="panel" aria-hidden="true">
+        <pre style="margin:0; overflow:auto"><code>&lt;!-- Quick deploy steps --&gt;
+1. Create a public repo
+2. Add this file as <strong>index.html</strong>
+3. Commit to <em>main</em>
+4. In Settings → Pages: set “Deploy from a branch”, branch <em>main</em>, folder <em>/root</em>
+5. Wait a moment, then open the URL it shows
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <div class="card-grid">
+        <article class="card">
+          <div class="badge">Fast</div>
+          <h3>No build step</h3>
+          <p class="muted">Everything lives in one HTML file with inline CSS and a tiny sprinkle of JS.</p>
+        </article>
+        <article class="card">
+          <div class="badge">Responsive</div>
+          <h3>Looks great on mobile</h3>
+          <p class="muted">Modern layout primitives and accessible color contrast out of the box.</p>
+        </article>
+        <article class="card">
+          <div class="badge">Customizable</div>
+          <h3>Easy to extend</h3>
+          <p class="muted">Add sections, tweak colors, and plug in analytics or forms as you like.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section two-col">
+      <div>
+        <h2>About</h2>
+        <p class="muted">You can repurpose this as a product page, personal site, or documentation hub. It’s intentionally minimal but thoughtfully styled, so you get a professional look without a heavy toolchain.</p>
+        <ul>
+          <li>Semantic HTML for accessibility</li>
+          <li>Sticky, translucent header with blur</li>
+          <li>Cards, badges, and panels ready to reuse</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 style="margin-top:0">How to customize</h3>
+        <ol>
+          <li>Edit the heading, paragraphs, and button texts.</li>
+          <li>Change the brand icon and site title in the header.</li>
+          <li>Adjust theme colors in <code>:root</code>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="two-col">
+        <form id="contact-form" class="panel" onsubmit="return false" aria-label="Contact form">
+          <label>Name<br><input name="name" required placeholder="Jane Doe" style="width:100%; padding:.6rem .7rem; border-radius:10px; border:1px solid #22324e; background:#0d1524; color:var(--text)"></label>
+          <br>
+          <label>Email<br><input name="email" type="email" required placeholder="jane@example.com" style="width:100%; padding:.6rem .7rem; border-radius:10px; border:1px solid #22324e; background:#0d1524; color:var(--text)"></label>
+          <br>
+          <label>Message<br><textarea name="message" required rows="5" placeholder="Say hello…" style="width:100%; padding:.6rem .7rem; border-radius:10px; border:1px solid #22324e; background:#0d1524; color:var(--text)"></textarea></label>
+          <br>
+          <button class="btn acc" id="sendBtn">Send (demo)</button>
+          <p class="muted" id="formNote" style="margin-top:.5rem">This demo just shows a toast. Wire it to your email/API later.</p>
+        </form>
+        <div class="panel">
+          <h3 style="margin-top:0">Where to find me</h3>
+          <p class="muted">Replace with your real contact details:</p>
+          <ul>
+            <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+            <li>GitHub: <a href="https://github.com/your-handle" target="_blank" rel="noopener">@your-handle</a></li>
+            <li>LinkedIn: <a href="#" target="_blank" rel="noopener">Your Name</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="get-started" class="section">
+      <h2>Get started</h2>
+      <ol>
+        <li>Create a new <strong>public</strong> repo on GitHub.</li>
+        <li>Add this file as <code>index.html</code> at the root and commit to the <code>main</code> branch.</li>
+        <li>Go to <em>Settings → Pages</em>, choose <em>Deploy from a branch</em>, then <em>main</em> and <em>/root</em>.</li>
+        <li>Save. After the deployment finishes, open the URL GitHub shows.</li>
+      </ol>
+      <p class="muted">Optional: add a <code>404.html</code> with the same content for SPA-style routing support.</p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© <span id="year"></span> Your Name. Built with a single HTML file. 🚀</p>
+  </footer>
+
+  <script>
+    // Smooth-scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); history.pushState(null, '', '#'+id); }
+      });
+    });
+
+    // Tiny toast for the demo contact form
+    const btn = document.getElementById('sendBtn');
+    const note = document.getElementById('formNote');
+    btn?.addEventListener('click', () => {
+      const toast = document.createElement('div');
+      toast.textContent = 'Thanks! (Demo only — wire this to your API/email)';
+      Object.assign(toast.style, {
+        position:'fixed', left:'50%', bottom:'20px', transform:'translateX(-50%)', padding:'12px 16px',
+        background:'#09111d', border:'1px solid #1f2a44', borderRadius:'12px', color:'var(--text)', zIndex:9999
+      });
+      document.body.appendChild(toast);
+      setTimeout(()=>toast.remove(), 2500);
+      note.textContent = 'Form submitted (demo). Replace with your own logic.';
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
